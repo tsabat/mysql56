@@ -1,0 +1,3 @@
+#!/bin/bash
+vagrant ssh -c 'cd /vagrant; zcat unbounce-db-test-backup.sql.gz | mysql -u root'
+
