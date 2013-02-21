@@ -5,6 +5,7 @@ ssh app-test-1.unbounce.com \
     -u unbounce \
     --single-transaction \
     --quick \
+    --events \
     --databases lp-webapp_production lp_stats \
     -p \
     | gzip > /vol/log/mysql-backup/unbounce-db-test-backup.sql.gz'
