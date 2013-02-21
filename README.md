@@ -30,4 +30,3 @@ Then you can have a look around with:
     vagrant ssh
     mysql -u root
 
-Note that if you 
