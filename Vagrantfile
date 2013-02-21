@@ -10,6 +10,9 @@ Vagrant::Config.run do |config|
   config.vm.define :mysql56_playground do |node|
     node.vm.box = 'precise64'
     node.vm.box_url = 'http://files.vagrantup.com/precise64.box'
+    # share a tmp folder so that we don't have to re-download the MySQL binary
+    # when destroying the VM
+    node.vm.share_folder "vagrant-user-tmp", '/tmp/downloads', './tmp/downloads'
     node.vm.host_name = 'mysql56'
     node.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = 'cookbooks'
@@ -18,25 +21,4 @@ Vagrant::Config.run do |config|
     end
   end
 
-  # sudo apt-get install mysql-server-5.5 mysql-client-5.5 <-- how to do password?
-  # wget http://www.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.10-debian6.0-x86_64.deb/from/http://cdn.mysql.com/ -O mysql-5.6.10-debian6.0-x86_64.deb
-  # dpkg -i mysql-5.6.10-debian6.0-x86_64.deb
-  # rm mysql-5.6.10-debian6.0-x86_64.deb
-  # mv /etc/mysql/my.cnf /etc/my.cnf
-  # cp /opt/mysql/server-5.6/support-files/mysql.server /etc/init.d/mysql.server
-  # update-rc.d mysql.server defaults
-  # chown -R mysql /opt/mysql/server-5.6/
-  # chgrp -R mysql /opt/mysql/server-5.6/
-
-  # template my.cnf
-
-  # service mysql stop
-  # /opt/mysql/server-5.6/scripts/mysql_install_db --user=mysql --datadir=/var/lib/mysql
-  # rm /opt/mysql/server-5.6/my.cnf
-
-  # permissions on /var/lib/mysql
-  # permissions on auto.cnf
-  # chown mysql:mysql /var/lib/mysql/auto.cnf
-
-  # template file - /etc/profile.d/mysql56
 end
