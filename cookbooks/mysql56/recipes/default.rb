@@ -36,6 +36,7 @@ script 'install MySQL 5.6' do
     chgrp -R mysql /opt/mysql/server-5.6/
     service mysql stop
     apt-get remove mysql-server mysql-server-5.5 mysql-server-core-5.5
+    rm /etc/mysql/my.cnf
     /opt/mysql/server-5.6/scripts/mysql_install_db --user=mysql --datadir=/var/lib/mysql
     rm /opt/mysql/server-5.6/my.cnf
     chmod 0744 /var/lib/mysql
