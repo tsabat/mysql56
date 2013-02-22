@@ -30,8 +30,6 @@ Then you can have a look around with:
     vagrant ssh
     mysql -u root
 
-### ERROR 1465 (HY000) at line 405: Triggers can not be created on system tables
-
 ## Credits
 This is all based on the following blog post:
 
