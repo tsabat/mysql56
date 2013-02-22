@@ -43,3 +43,11 @@ script 'install MySQL 5.6' do
     service mysql.server start
   SCRIPT
 end
+
+script 'load timezones' do
+  interpreter 'bash'
+  user 'root'
+  code <<-SCRIPT
+    /opt/mysql/server-5.6/bin/mysql_tzinfo_to_sql /usr/share/zoneinfo |mysql -u root mysql
+  SCRIPT
+end

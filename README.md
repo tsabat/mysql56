@@ -30,3 +30,11 @@ Then you can have a look around with:
     vagrant ssh
     mysql -u root
 
+### ERROR 1465 (HY000) at line 405: Triggers can not be created on system tables
+
+## Credits
+This is all based on the following blog post:
+
+http://www.peterchen.net/2013/02/20/en-how-to-install-mysql-5-6-on-ubuntu-12-04-precise/
+
+Much thanks to Peter Hansen for that!
