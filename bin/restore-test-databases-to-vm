@@ -1,5 +1,0 @@
-#!/bin/bash
-vagrant ssh -c "mysql -u root -e \"grant all on *.* to 'unbounce'@'%'\""
-# vagrant ssh -c 'cd /tmp/downloads; zcat unbounce-master-db-test-backup.sql.gz | mysql -u root'
-vagrant ssh -c 'cd /tmp/downloads; zcat unbounce-db-test-backup.sql.gz | mysql -u root'
-
