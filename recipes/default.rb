@@ -1,6 +1,6 @@
-DOWNLOAD_DIR = '/tmp/downloads'
-MYSQL_DOWNLOAD_URL = 'http://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.10-debian6.0-x86_64.deb'
-MYSQL_DOWNLOAD_FILE = "#{DOWNLOAD_DIR}/mysql-5.6.10-debian6.0-x86_64.deb"
+DOWNLOAD_DIR = '/vagrant/src'
+MYSQL_DOWNLOAD_URL = 'http://codepen-dropbox.s3.amazonaws.com/mysql-5.6.12-debian6.0-x86_64.deb'
+MYSQL_DOWNLOAD_FILE = "#{DOWNLOAD_DIR}/mysql-5.6.12-debian6.0-x86_64.deb"
 
 package "mysql-server-5.5"
 package "mysql-client-5.5"
@@ -12,7 +12,6 @@ remote_file MYSQL_DOWNLOAD_FILE do
   source MYSQL_DOWNLOAD_URL
   mode 0644
   action :create_if_missing
-  checksum "b8f70c35e50cf49a4c8ed01d731b7d64"
 end
 
 template '/etc/my.cnf' do
@@ -42,12 +41,5 @@ script 'install MySQL 5.6' do
     chmod 0744 /var/lib/mysql
     service mysql.server start
   SCRIPT
-end
-
-script 'load timezones' do
-  interpreter 'bash'
-  user 'root'
-  code <<-SCRIPT
-    /opt/mysql/server-5.6/bin/mysql_tzinfo_to_sql /usr/share/zoneinfo |mysql -u root mysql
-  SCRIPT
+  not_if "mysql --version | grep 5.6"
 end
