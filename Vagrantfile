@@ -12,7 +12,7 @@ Vagrant::Config.run do |config|
     node.vm.box_url = 'http://files.vagrantup.com/precise64.box'
     # share a tmp folder so that we don't have to re-download the MySQL binary
     # when destroying the VM
-    node.vm.share_folder "vagrant-user-tmp", '/tmp/downloads', './tmp/downloads'
+    # node.vm.share_folder "vagrant-user-tmp", '/tmp/downloads', './tmp/downloads'
     node.vm.host_name = 'mysql56'
     node.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = 'cookbooks'
