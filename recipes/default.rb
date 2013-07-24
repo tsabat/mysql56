@@ -40,6 +40,7 @@ script 'install MySQL 5.6' do
     rm /opt/mysql/server-5.6/my.cnf
     chmod 0744 /var/lib/mysql
     service mysql.server start
+    /opt/mysql/server-5.6/bin/mysqladmin -u root password root
   SCRIPT
   not_if "mysql --version | grep 5.6"
 end
