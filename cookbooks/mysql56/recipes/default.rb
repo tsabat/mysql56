@@ -1,4 +1,4 @@
-DOWNLOAD_DIR = '/tmp/downloads'
+DOWNLOAD_DIR = '/tmp'
 MYSQL_DOWNLOAD_URL = 'http://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.10-debian6.0-x86_64.deb'
 MYSQL_DOWNLOAD_FILE = "#{DOWNLOAD_DIR}/mysql-5.6.10-debian6.0-x86_64.deb"
 
