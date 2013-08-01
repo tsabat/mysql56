@@ -2,8 +2,8 @@ DOWNLOAD_DIR = '/vagrant/src'
 MYSQL_DOWNLOAD_URL = 'http://codepen-dropbox.s3.amazonaws.com/mysql-5.6.12-debian6.0-x86_64.deb'
 MYSQL_DOWNLOAD_FILE = "#{DOWNLOAD_DIR}/mysql-5.6.12-debian6.0-x86_64.deb"
 
-package "mysql-server-5.5"
-package "mysql-client-5.5"
+package "mysql-server"
+package "mysql-client"
 package "libaio1"
 
 directory DOWNLOAD_DIR
