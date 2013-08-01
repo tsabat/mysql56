@@ -1,3 +1,5 @@
+include_recipe 'apt'
+
 DOWNLOAD_DIR = '/vagrant/src'
 MYSQL_DOWNLOAD_URL = 'http://codepen-dropbox.s3.amazonaws.com/mysql-5.6.12-debian6.0-x86_64.deb'
 MYSQL_DOWNLOAD_FILE = "#{DOWNLOAD_DIR}/mysql-5.6.12-debian6.0-x86_64.deb"
